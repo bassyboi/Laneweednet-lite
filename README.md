@@ -11,7 +11,7 @@ pip install -r requirements.txt
 
 ## 1) Convert your COCO boxes → lane labels (one-off)
 ```bash
-python scripts/lane_labels_from_coco.py \
+python lane_labels_from_coco.py \
   --coco /path/to/your_train.json \
   --img_dir /path/to/images \
   --img_size 384 \
@@ -19,7 +19,7 @@ python scripts/lane_labels_from_coco.py \
   --area_thresh 4800 \
   --out lanes_train.json
 
-python scripts/lane_labels_from_coco.py \
+python lane_labels_from_coco.py \
   --coco /path/to/your_val.json \
   --img_dir /path/to/images \
   --img_size 384 \
@@ -46,4 +46,8 @@ python infer_lanes.py --weights runs/best.pt --image /path/to/frame.jpg --img 38
 - Use hysteresis + EMA on the 4 probabilities on-rig to avoid flicker.
 - Map camera FOV → boom geometry so each lane corresponds to a nozzle group.
 
+### Colab
+For a quick smoke-test (conversion → train → inference) open **`LaneWeedNet_Lite_Colab.ipynb`** in Google Colab.
+
 MIT licensed.
+
